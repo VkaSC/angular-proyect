@@ -8,21 +8,18 @@ import { PerroComponent } from './components/perro/perro.component';
 import { DniComponent } from './components/dni/dni.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FraseComponent } from './components/frase/frase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdivinaComponent,
     PerroComponent,
-    DniComponent
+    DniComponent,
+    FraseComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

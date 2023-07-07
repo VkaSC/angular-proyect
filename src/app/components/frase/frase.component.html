@@ -1,0 +1,16 @@
+{{titulo}}
+<br>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">FRASE</span>
+    <input type="text" class="form-control" placeholder="Escriba una frase..." [(ngModel)]="resultadoFrase">
+</div>
+
+
+<button (click)="fraseAlReves()" class="btn btn-primary">Analizar Frase</button>
+<br>
+<span *ngIf="resultadoFrase!=''">Intenta leer al reves tu frase: {{resultadoFrase}}</span>
+<br>
+<span *ngIf="resultadoFrase">La frase tiene {{resultadoFrase.length}} caracteres</span>
+<br>
+<span *ngIf="resultadoFrase && resultadoParInpar">La longitud de la frase es {{resultadoParInpar}}</span>
