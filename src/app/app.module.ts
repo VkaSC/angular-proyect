@@ -9,6 +9,7 @@ import { DniComponent } from './components/dni/dni.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FraseComponent } from './components/frase/frase.component';
+import { ImcComponent } from './components/imc/imc.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FraseComponent } from './components/frase/frase.component';
     PerroComponent,
     DniComponent,
     FraseComponent,
+    ImcComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
