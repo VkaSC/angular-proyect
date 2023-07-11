@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CdTimerComponent, TimeInterface } from 'angular-cd-timer';
 
 @Component({
   selector: 'app-adivina',
   templateUrl: './adivina.component.html',
-  styleUrls: ['./adivina.component.css']
+  styleUrls: ['./adivina.component.css'],
 })
 export class AdivinaComponent implements OnInit {
   titulo: string;
   numeroUsuario: number;
   numeroBuscado: number;
   contador: number;
+  finPartida: boolean;
 
+  @ViewChild('basicTimer') contadorTimer!: CdTimerComponent;
   /**
    *
    * HACED UNA APP DONDE EL PROGRAMA
@@ -35,6 +38,7 @@ export class AdivinaComponent implements OnInit {
     this.numeroBuscado = this.calcularNumeroAleatorioDe1A100();
     console.log('numero a adivinar ' + this.numeroBuscado);
     this.contador = 5;
+    this.finPartida = false;
   }
 
   ngOnInit(): void {
@@ -56,11 +60,20 @@ export class AdivinaComponent implements OnInit {
       window.alert('Te quedan ' + this.contador + ' intentos');
       if (this.contador < 1) {
         window.alert('Has perdido');
+        this.finPartida = true;
       }
     }
     if (this.numeroBuscado == this.numeroUsuario) {
       console.log('Felicidades, lo has encontrado!!!');
       window.alert('Has ganado la partida!!!');
+      this.finPartida = true;
+    }
+    if (this.finPartida) {
+      this.contadorTimer.stop(); //paro el contador
+      let ti: TimeInterface = this.contadorTimer.get();
+      console.log(
+        'Has tardado ' + ti.minutes + ' minutos y ' + ti.seconds + ' segundos'
+      );
     }
   }
 }

@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FraseComponent } from './components/frase/frase.component';
 import { ImcComponent } from './components/imc/imc.component';
+import { ChuckComponent } from './components/chuck/chuck.component';
 
 const routes: Routes = [
   { path: 'dni', component: DniComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'perros', component: PerroComponent },
   { path: 'frase', component: FraseComponent },
   { path: 'imc', component: ImcComponent },
+  { path: 'chuck', component: ChuckComponent },
 ];
 
 @NgModule({

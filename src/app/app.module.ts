@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FraseComponent } from './components/frase/frase.component';
 import { ImcComponent } from './components/imc/imc.component';
+import { ChuckComponent } from './components/chuck/chuck.component';
+import { CdTimerModule } from 'angular-cd-timer';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,15 @@ import { ImcComponent } from './components/imc/imc.component';
     DniComponent,
     FraseComponent,
     ImcComponent,
+    ChuckComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    CdTimerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
