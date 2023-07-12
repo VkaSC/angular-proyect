@@ -1,0 +1,23 @@
+<h1 style="color: orange;">RESTAURANTES MÁLAGA</h1>
+<button class="btn btn-success" routerLink="/restaurantes/alta">Nuevo Restaurante</button><br>
+<div *ngIf=" listaRestaurantes && listaRestaurantes.length> 0" class="row">
+
+    <div *ngFor="let restaurante of listaRestaurantes" class="card col-4 mx-2 my-2" style="width: 18rem;">
+        <img src="../../../assets/logo.png" class="card-img-top" alt="logo">
+        <div class="card-body">
+            <h5 class="card-title" style="color: orange;">{{restaurante.nombre}}</h5>
+            <p class="card-text">{{restaurante.direccion}}.</p>
+            <p class="card-text">{{restaurante.barrio}}.</p>
+            <p class="card-text">Precio medio: {{restaurante.precio}}€ </p>
+            <p>
+                <span class="fs-5" style="color: cadetblue;">Especialidad en</span><br>
+                {{restaurante.especialidad1}}, {{restaurante.especialidad2}},
+                {{restaurante.especialidad3}}
+            </p>
+
+            <a href="{{restaurante.fichaGoogle}}" class="card-text">{{restaurante.fichaGoogle}}</a>
+            <br>
+            <a href="#" class="btn btn-primary">Ir a la web</a>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+import { FormularioComponent } from './components/formulario/formulario.component';
+import { RestaurantesComponent } from './components/restaurantes/restaurantes.component';
 import { PerroComponent } from './components/perro/perro.component';
 import { AdivinaComponent } from './components/adivina/adivina.component';
 import { DniComponent } from './components/dni/dni.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'frase', component: FraseComponent },
   { path: 'imc', component: ImcComponent },
   { path: 'chuck', component: ChuckComponent },
+  { path: 'restaurantes', component: RestaurantesComponent },
+  { path: 'restaurantes/alta', component: FormularioComponent },
 ];
 
 @NgModule({
