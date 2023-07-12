@@ -1,6 +1,7 @@
 import { RestauranteService } from './../../service/restaurante.service';
 import { Component, OnInit } from '@angular/core';
 import { Restaurante } from 'src/app/models/restaurante';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -13,7 +14,10 @@ export class FormularioComponent implements OnInit {
   restaurante: Restaurante;
   barrios: Array<String>;
 
-  constructor(private RestauranteService: RestauranteService) {
+  constructor(
+    private RestauranteService: RestauranteService,
+    private servicioRutas: Router
+  ) {
     this.restaurante = new Restaurante();
 
     this.restaurante.nombre = 'El Cateto';
@@ -71,6 +75,7 @@ export class FormularioComponent implements OnInit {
         alert(
           `Restaurante insertado correctamente con id ${restauranteNuevo.id}`
         );
+        this.servicioRutas.navigateByUrl('/restaurantes');
       },
     });
   }

@@ -27,4 +27,8 @@ export class RestaurantesComponent implements OnInit {
       },
     });
   }
+
+  borrarRestaurante() {
+    console.log('Quiere borrar restaurante');
+  }
 }
