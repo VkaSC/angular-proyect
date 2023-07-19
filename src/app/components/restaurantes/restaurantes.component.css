@@ -1,0 +1,8 @@
+.color{
+    background-color: #10dfab;
+    border: none;
+}
+.size{
+    display: flex;
+    justify-content: space-around;
+}

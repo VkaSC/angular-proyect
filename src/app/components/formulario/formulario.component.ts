@@ -74,19 +74,39 @@ export class FormularioComponent implements OnInit {
      ${this.restaurante.especialidad3}
     `);
 
-    this.RestauranteService.postRestaurante(this.restaurante).subscribe({
-      complete: () => console.log('Comunicación completada'),
-      error: (errorRx) => {
-        console.log(errorRx);
-        alert('Error al insertar el restaurante');
-      },
-      next: (restauranteNuevo) => {
-        alert(
-          `Restaurante insertado correctamente con id ${restauranteNuevo.id}`
-        );
-        this.servicioRutas.navigateByUrl('/restaurantes');
-      },
-    });
+    if (this.foto_seleccionada != null) {
+      //Llamamos a post con foto
+      this.RestauranteService.postRestauranteConFoto(this.restaurante, this.foto_seleccionada).subscribe({
+        complete: () => console.log('Comunicación completada con foto'),
+        error: (errorRx) => {
+          console.log(errorRx);
+          alert('Error al insertar el restaurante con foto');
+        },
+        next: (restauranteNuevo) => {
+          alert(
+            `Restaurante insertado correctamente con id ${restauranteNuevo.id}`
+          );
+          this.servicioRutas.navigateByUrl('/restaurantes');
+        },
+      });
+
+    } else {
+      //llamamos a post normal
+      this.RestauranteService.postRestaurante(this.restaurante).subscribe({
+        complete: () => console.log('Comunicación completada'),
+        error: (errorRx) => {
+          console.log(errorRx);
+          alert('Error al insertar el restaurante');
+        },
+        next: (restauranteNuevo) => {
+          alert(
+            `Restaurante insertado correctamente con id ${restauranteNuevo.id}`
+          );
+          this.servicioRutas.navigateByUrl('/restaurantes');
+        },
+      });
+    }
+ 
   }
 
   /**

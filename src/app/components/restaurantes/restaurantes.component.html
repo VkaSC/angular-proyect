@@ -1,9 +1,11 @@
-<h1 style="color: orange;">RESTAURANTES MÁLAGA</h1>
+<h1 style="color: orange;"><img src="/assets/favicon.png"> RESTAURANTES MÁLAGA</h1>
 <button class="btn btn-success" routerLink="/restaurantes/alta">Nuevo Restaurante</button><br>
 <div *ngIf=" listaRestaurantes && listaRestaurantes.length> 0" class="row">
 
     <div *ngFor="let restaurante of listaRestaurantes" class="card col-4 mx-2 my-2" style="width: 18rem;">
-        <img src="../../../assets/logo.png" class="card-img-top" alt="logo">
+        <img *ngIf="restaurante.fotHashCode" src="http://localhost:8081/restaurante/obtenerFoto/{{restaurante.id}}" class="card-img-top" alt="logo">
+        <!--Si fotoHashCode es nullo se carga la foto por defecto (logo)-->
+        <img *ngIf="restaurante.fotHashCode==null" src="/assets/logo.png" class="card-img-top" alt="logo">
         <div class="card-body">
             <h5 class="card-title" style="color: orange;">{{restaurante.nombre}}</h5>
             <p class="card-text">{{restaurante.direccion}}.</p>
@@ -18,7 +20,7 @@
             <a href="{{restaurante.fichaGoogle}}" class="card-text">{{restaurante.fichaGoogle}}</a>
             -->
             <br>
-            <a href="#" class="btn btn-primary">Ir a la web</a>
+            <a href="#" class="btn btn-primary color size" >Ir a la web</a>
             <br><br>
             <button class="btn btn-danger" (click)="borrarRestaurante()">Borrar</button>
         </div>
