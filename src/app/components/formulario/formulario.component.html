@@ -102,6 +102,12 @@
             id="especialidad3" name="especialidad1" placeholder="Especialidad 3">
     </div>
     <br>
+    <div class="form-group">
+        <label for="foto">Foto</label>
+        <input type="file" (change)="seleccionarFoto($event)" class="form-control" id="foto" name="foto">
+
+    </div>
+    <br>
 
     <button type="submit" class="btn btn-primary">CREAR</button>
 </form>

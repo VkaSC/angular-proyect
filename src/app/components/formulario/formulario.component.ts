@@ -8,10 +8,16 @@ import { Router } from '@angular/router';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
 })
+/**
+ * Forulario alta y modificación de registro(restaurante)
+ * @autor Verónika
+ */
 export class FormularioComponent implements OnInit {
   //representa el nuevo restaurante
   //está conectado al formulario
   restaurante: Restaurante;
+  foto_seleccionada!:File|null; //union type (es como si fuese un objeto de dos tipos)
+  
   barrios: Array<String>;
 
   constructor(
@@ -49,6 +55,9 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Creación de restaurantes
+   */
   crearRestaurante() {
     console.log('enviar los datos');
     console.log(`Restaurante 
@@ -79,4 +88,34 @@ export class FormularioComponent implements OnInit {
       },
     });
   }
+
+  /**
+   * Método para adjuntar archivo al formulario de alta y modificación
+   *  @param evento 
+   */
+  seleccionarFoto(evento: Event) {
+    console.log("foto cambiada");
+    //evento.target //éste es el input file
+    let input_file = evento.target as HTMLInputElement;
+
+    if (input_file.files) {
+
+
+      this.foto_seleccionada = input_file.files[0];
+
+      console.log("Nombre fichero sel = " + this.foto_seleccionada.name);
+      console.log("Tipo fichero sel = " + this.foto_seleccionada.type);
+
+      //si es una imagen, perfecto "me la quedo"
+      if (this.foto_seleccionada.type.indexOf('image') >= 0) {
+        console.log("el usuario ha seleccionado una imagen");
+      } else {
+        console.log("el usuario NO ha seleccionado una imagen");
+        this.foto_seleccionada = null;
+        //si no, la elimino, "no me la quedo"
+      }
+    }
+
+  }
+
 }
