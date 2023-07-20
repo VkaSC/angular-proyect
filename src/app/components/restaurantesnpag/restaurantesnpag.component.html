@@ -1,0 +1,39 @@
+<h1 style="color: cadetblue;" class="titulo"><img src="/assets/favicon.png"> RESTAURANTES MÁLAGA</h1>
+<button class="btn btn-success" routerLink="/restaurantes/alta">Nuevo Restaurante</button><br>
+<div *ngIf=" listaRestaurantes && listaRestaurantes.length> 0" class="row">
+
+    <div *ngFor="let restaurante of listaRestaurantes" class="card col-4 mx-2 my-2 card-container" >
+        <div class="size img-size">
+            <img *ngIf="restaurante.fotHashCode" src="http://localhost:8081/restaurante/obtenerFoto/{{restaurante.id}}"
+                class="card-img-top" alt="logo">
+            <!--Si fotoHashCode es nullo se carga la foto por defecto (logo)-->
+            <img *ngIf="restaurante.fotHashCode==null" src="/assets/logo.png" class="card-img-top" alt="logo">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" style="color: orange;">{{restaurante.nombre}}</h5>
+            <p class="card-text">{{restaurante.direccion}}.</p>
+            <p class="card-text">{{restaurante.barrio}}.</p>
+            <p class="card-text">Precio medio: {{restaurante.precio}}€ </p>
+            <p>
+                <span class="fs-5" style="color: cadetblue;">Especialidad en</span><br>
+                {{restaurante.especialidad1}}, {{restaurante.especialidad2}},
+                {{restaurante.especialidad3}}
+            </p>
+            <!--
+            <a href="{{restaurante.fichaGoogle}}" class="card-text">{{restaurante.fichaGoogle}}</a>
+            -->
+            <br>
+            <div class="button-size">
+                <a href="#" class="btn btn-primary color size">Ir a la web</a>
+                <br>
+                <button class="btn btn-danger" (click)="borrarRestaurante()">Borrar</button>
+            </div>
+        </div>
+    </div>
+    <!--Paginación-->
+    <mat-paginator class="mat-mdc-paginator-container " [length]="totalRegistros" [pageSize]="totalPorPagina" [pageSizeOptions]="opcionesTamanio"
+        [pageIndex]="paginaActual" aria-label="Select page" showFirstLastButton (page)="paginar($event)">
+    </mat-paginator>
+
+
+</div>

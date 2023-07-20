@@ -1,0 +1,30 @@
+.card-container {
+    width: 18rem;
+    border: none;
+}
+
+.color{
+    background-color: #29bbd4;
+    border: none;
+}
+.size{
+    display: flex;
+    justify-content: space-around;
+}
+.img-size{
+    height: 17em;
+}
+.button-size {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.mat-mdc-paginator-container {
+    justify-content: center;
+}
+
+.titulo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+}

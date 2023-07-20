@@ -14,6 +14,10 @@ import { ChuckComponent } from './components/chuck/chuck.component';
 import { CdTimerModule } from 'angular-cd-timer';
 import { RestaurantesComponent } from './components/restaurantes/restaurantes.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { RestaurantesnpagComponent } from './components/restaurantesnpag/restaurantesnpag.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     ChuckComponent,
     RestaurantesComponent,
     FormularioComponent,
+    RestaurantesnpagComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     FormsModule,
     HttpClientModule,
     CdTimerModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

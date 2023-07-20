@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FraseComponent } from './components/frase/frase.component';
 import { ImcComponent } from './components/imc/imc.component';
 import { ChuckComponent } from './components/chuck/chuck.component';
+import { RestaurantesnpagComponent } from './components/restaurantesnpag/restaurantesnpag.component';
 
 const routes: Routes = [
   { path: 'dni', component: DniComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'chuck', component: ChuckComponent },
   { path: 'restaurantes', component: RestaurantesComponent },
   { path: 'restaurantes/alta', component: FormularioComponent },
+  { path: 'restaurantepag', component:  RestaurantesnpagComponent},
 ];
 
 @NgModule({
