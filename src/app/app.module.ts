@@ -17,6 +17,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { RestaurantesnpagComponent } from './components/restaurantesnpag/restaurantesnpag.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { MapaComponent } from './components/mapa/mapa.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     RestaurantesComponent,
     FormularioComponent,
     RestaurantesnpagComponent,
+    BusquedaComponent,
+    MapaComponent,
   ],
   imports: [
     BrowserModule,

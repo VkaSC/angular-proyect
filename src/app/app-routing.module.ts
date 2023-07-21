@@ -9,6 +9,7 @@ import { FraseComponent } from './components/frase/frase.component';
 import { ImcComponent } from './components/imc/imc.component';
 import { ChuckComponent } from './components/chuck/chuck.component';
 import { RestaurantesnpagComponent } from './components/restaurantesnpag/restaurantesnpag.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 const routes: Routes = [
   { path: 'dni', component: DniComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'restaurantes', component: RestaurantesComponent },
   { path: 'restaurantes/alta', component: FormularioComponent },
   { path: 'restaurantepag', component:  RestaurantesnpagComponent},
+  { path: 'busqueda', component:  BusquedaComponent},
 ];
 
 @NgModule({

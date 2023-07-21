@@ -2,6 +2,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    //"strictNullChecks": false, //--> Permite declarar variables sin inicializar
+    "noImplicitAny": false, //permite declarar variables sin tipo
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

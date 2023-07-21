@@ -57,4 +57,14 @@ export class RestauranteService {
     let parametros:HttpParams = new HttpParams().set('page', page).set('size', size);
     return this.http.get<any>(RestauranteService.URL_GET_RESTAURANTES + "/pagina", {params:parametros});
   }
+
+  //http://localhost:8081/restaurante/filtro?nombre=centro
+ 
+ getRestaurantePorFiltro(input:string):Observable<Array<Restaurante>>{
+  let parametro:HttpParams = new HttpParams().set('nombre', input);
+    return this.http.get<Array<Restaurante>>(
+      RestauranteService.URL_GET_RESTAURANTES +'/filtro', {params:parametro});
+    
+  }
+  
 }
