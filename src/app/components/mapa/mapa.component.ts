@@ -33,8 +33,16 @@ export class MapaComponent implements OnInit {
     
   }
 
+  dibujarPunto(latitud: number, longitud: number) {
+    let nivel_de_zoom = 12;
+    this.map.setView([latitud, longitud], nivel_de_zoom);
+   
+    L.marker([latitud, longitud]).addTo(this.map)
+    .bindPopup('Usted se encuentra en esta localización ')
+    .openPopup();
+  }
   
-  dibujarPunto(latitud: number, longitud: number, nombre:string) {
+  dibujarPuntoNombre(latitud: number, longitud: number, nombre:string) {
     let nivel_de_zoom = 12;
     this.map.setView([latitud, longitud], nivel_de_zoom);
    
@@ -59,4 +67,5 @@ export class MapaComponent implements OnInit {
       radius: 50
   }).addTo(this.map);
   }  
+
 }

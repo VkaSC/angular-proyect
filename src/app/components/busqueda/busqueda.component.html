@@ -9,3 +9,4 @@
 <a (click)="restaurateTocado(rest)" class="list-group-item list-group-item-action" *ngFor="let rest of listaRestaurantes"><button class="btn btn-primary" style="background-color: darkcyan; margin: 2px 8px; border: none;" (click)="restaurateTocado(rest)">Ir al mapa</button>{{rest.nombre}} {{rest.barrio}} {{rest.especialidad1}} {{rest.especialidad2}} {{rest.especialidad3}} </a>
 
 <app-mapa #mapa></app-mapa>
+<button (click)="encuentrame()" class="btn-color">ENCUENTRAME</button>

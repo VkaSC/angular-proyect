@@ -1,3 +1,9 @@
 a {
     cursor: pointer;
 }
+
+.btn-color{
+    background: darkcyan;
+    border: none;
+    color: white;
+}

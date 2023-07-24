@@ -53,10 +53,28 @@ export class BusquedaComponent implements OnInit{
     this.listaRestaurantes.length = 0;
     console.log('Nombre tocado = ' + restaurante.nombre);
     //alert('Nombre tocado = ' + restaurante.nombre + ' id ' + restaurante.id);
-    this.mapa.dibujarPunto(restaurante.latitud, restaurante.latitud, restaurante.nombre);
+    this.mapa.dibujarPuntoNombre(restaurante.latitud, restaurante.longitud, restaurante.nombre);
   }
 
  
+  encuentrame(){
+    
+    if (navigator.geolocation) {
+      console.log( "tenemos acceso al Api Geolocation");
+      navigator.geolocation.getCurrentPosition((pos) => this.exito(pos), ()=> this.fracaso);
+    }
+  }
+  exito(position:GeolocationPosition){
+    console.log("Se ha encontrado su posición");
+    console.log(`Latitud ${position.coords.latitude}`);
+    console.log(`Longitud ${position.coords.longitude}`);
+    this.mapa.dibujarPunto(position.coords.latitude,position.coords.longitude);
+  }
+
+  fracaso(){
+    alert("No es posible determinar su ubicación en este dispusitivo");
+  }
+
   /*
   busqueda2(){
     console.log('Búsqueda 2');
