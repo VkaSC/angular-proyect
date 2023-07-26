@@ -9,6 +9,7 @@ import { Restaurante } from 'src/app/models/restaurante';
 })
 export class RestaurantesComponent implements OnInit {
   listaRestaurantes!: Array<Restaurante>;
+  ruta_servicio_foto:string = RestauranteService.URL_ACTUAL+"/obtenerFoto";
 
   constructor(private restauranteService: RestauranteService) {}
 

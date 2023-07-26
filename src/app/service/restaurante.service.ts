@@ -7,8 +7,13 @@ import { Restaurante } from '../models/restaurante';
   providedIn: 'root',
 })
 export class RestauranteService {
-  static readonly URL_GET_RESTAURANTES: string =
+  static readonly URL_RESTAURANTES_PROD: string =
+    'restaurante';
+    static readonly URL_RESTAURANTES_TEST: string =
     'http://localhost:8081/restaurante';
+    static readonly URL_ACTUAL: string =
+    RestauranteService.URL_RESTAURANTES_PROD;
+
 
   cabeceras: HttpHeaders = new HttpHeaders({
     'content-type': 'application/json',
@@ -18,13 +23,13 @@ export class RestauranteService {
 
   getListaRestaurantes(): Observable<Array<Restaurante>> {
     return this.http.get<Array<Restaurante>>(
-      RestauranteService.URL_GET_RESTAURANTES
+      RestauranteService.URL_ACTUAL
     );
   }
 
   postRestaurante(restaurante: Restaurante): Observable<Restaurante> {
     return this.http.post<Restaurante>(
-      RestauranteService.URL_GET_RESTAURANTES,
+      RestauranteService.URL_ACTUAL,
       restaurante,
       {
         headers: this.cabeceras,
@@ -49,13 +54,13 @@ export class RestauranteService {
     formData.append('especialidad3', restaurante.especialidad3);
     formData.append('archivo', archivo);
 
-    return this.http.post<Restaurante>(RestauranteService.URL_GET_RESTAURANTES + "/crear-con-foto", formData);
+    return this.http.post<Restaurante>(RestauranteService.URL_ACTUAL + "/crear-con-foto", formData);
   }
 
   //http://localhost:8081/restaurante/pagina?page=0&size=2
   getPaginaRestaurantes(page:number, size:number):Observable<any>{
     let parametros:HttpParams = new HttpParams().set('page', page).set('size', size);
-    return this.http.get<any>(RestauranteService.URL_GET_RESTAURANTES + "/pagina", {params:parametros});
+    return this.http.get<any>(RestauranteService.URL_ACTUAL + "/pagina", {params:parametros});
   }
 
   //http://localhost:8081/restaurante/filtro?nombre=centro
@@ -63,7 +68,7 @@ export class RestauranteService {
  getRestaurantePorFiltro(input:string):Observable<Array<Restaurante>>{
   let parametro:HttpParams = new HttpParams().set('nombre', input);
     return this.http.get<Array<Restaurante>>(
-      RestauranteService.URL_GET_RESTAURANTES +'/filtro', {params:parametro});
+      RestauranteService.URL_ACTUAL +'/filtro', {params:parametro});
     
   }
   
