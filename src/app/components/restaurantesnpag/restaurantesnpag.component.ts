@@ -17,6 +17,8 @@ export class RestaurantesnpagComponent implements OnInit {
   opcionesTamanio: number[] = [2, 4, 6, 8];
   paginaActual: number = 0;
 
+  ruta_servicio_foto:string = RestauranteService.URL_ACTUAL+"/obtenerFoto";
+
   constructor(private restauranteService: RestauranteService) { }
 
   ngOnInit(): void {

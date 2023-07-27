@@ -4,7 +4,7 @@
 
     <div *ngFor="let restaurante of listaRestaurantes" class="card col-4 mx-2 my-2 card-container" >
         <div class="size img-size">
-            <img *ngIf="restaurante.fotHashCode" src="http://localhost:8081/restaurante/obtenerFoto/{{restaurante.id}}"
+            <img *ngIf="restaurante.fotHashCode" src="{{ruta_servicio_foto}}/{{restaurante.id}}"
                 class="card-img-top" alt="logo">
             <!--Si fotoHashCode es nullo se carga la foto por defecto (logo)-->
             <img *ngIf="restaurante.fotHashCode==null" src="/assets/logo.png" class="card-img-top" alt="logo">

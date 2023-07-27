@@ -22,10 +22,11 @@ const routes: Routes = [
   { path: 'restaurantes/alta', component: FormularioComponent },
   { path: 'restaurantepag', component:  RestaurantesnpagComponent},
   { path: 'busqueda', component:  BusquedaComponent},
+  {path:"**", redirectTo: "/"}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: false})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
